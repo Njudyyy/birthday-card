@@ -1,0 +1,121 @@
+body {
+    background: linear-gradient(135deg, #ffd6e8, #e0c3ff);
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.card {
+    display: flex;                 /* ⭐ แนวนอน */
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    width: 95%;
+    max-width: 1000px;             /* ⭐ แนวนอนกว้างขึ้น */
+    padding: 25px;
+    box-sizing: border-box;
+    box-shadow: 0 15px 30px rgba(150, 80, 200, 0.35);
+}
+
+.card h1 {
+    text-align: center;
+    color: #b5179e;
+    margin-bottom: 20px;
+}
+
+.pages {
+    display: flex;                 /* ⭐ แบ่งซ้ายขวา */
+    gap: 20px;
+    width: 100%;
+}
+
+.page {
+    flex: 1;
+    padding: 20px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #fde2ff, #f3d9ff);
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+.page h2 {
+    text-align: center;
+    color: #9d4edd;
+    margin-bottom: 12px;
+}
+
+.page p {
+    color: #5a2a82;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.page.left {
+    border-right: 2px dashed rgba(157, 78, 221, 0.4);
+}
+
+button {
+    align-self: center;
+    margin-top: 20px;
+    padding: 12px 26px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff5db1, #9d4edd);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* 📱 มือถือ */
+@media (max-width: 768px) {
+    .pages {
+        flex-direction: column;
+    }
+
+    .page.left {
+        border-right: none;
+        border-bottom: 2px dashed rgba(157, 78, 221, 0.4);
+    }
+}
+.question-form {
+    margin-top: 25px;
+    width: 100%;
+}
+
+.question {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.question label {
+    display: block;
+    margin-bottom: 8px;
+    color: #6a2c91;
+    font-weight: bold;
+}
+
+.question textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #d8b4f8;
+    font-family: inherit;
+    resize: none;
+    box-sizing: border-box;
+}
+
+.question textarea:focus {
+    outline: none;
+    border-color: #b983ff;
+}
+.hint {
+    text-align: center;
+    margin-top: 10px;
+    color: #7a4fa3;
+    font-size: 14px;
+}

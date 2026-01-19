@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Memories </title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f6e6ff, #ffe6f3);
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 1100px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 28px;
+            box-shadow: 0 20px 40px rgba(150, 80, 200, 0.25);
+            text-align: center;
+        }
+
+        h1 {
+            color: #6a2c91;
+        }
+
+        p {
+            color: #7a4fa3;
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 32px;
+            margin-top: 35px;
+            padding-bottom: 40px;
+        }
+
+     
+
+
+        .memory {
+            background: linear-gradient(135deg, #f3d9ff, #fde2ff);
+            border-radius: 20px;
+            aspect-ratio: 1 / 1;
+            cursor: pointer;
+            box-shadow: 0 12px 25px rgba(150, 80, 200, 0.25);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: float 4s ease-in-out infinite;
+            transition: transform 0.4s;
+        }
+
+        /* ขยับลอยเบา ๆ ไม่ทับ */
+        @keyframes float {
+            0% { transform: translateY(0) rotate(-1deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+            100% { transform: translateY(0) rotate(-1deg); }
+        }
+
+        .memory:hover {
+            transform: scale(1.08);
+        }
+
+        .memory img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            opacity: 0;
+            transform: scale(1.1);
+            transition: all 0.5s ease;
+            position: absolute;
+            inset: 0;
+        }
+
+        .memory.open img {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .caption {
+            position: absolute;
+            bottom: -32px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: #5a2a82;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .memory.open .caption {
+            opacity: 1;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 26px;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #d58cff, #ff9edb);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(150, 80, 200, 0.3);
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+<div class="card">
+    <h1> Our first time to know each other Memories </h1>
+    <p>chick to see all memories sayangku―୨୧⋆ ˚</p>
+
+    <div class="gallery">
+        <div class="memory" onclick="openMemory(this)">૮ . . ྀིა
+            <img src="images/image1.png">
+            
+        </div>
+
+        <div class="memory" onclick="openMemory(this)">૮ . . ྀིა
+            <img src="images/image2.png">
+            
+        </div>
+
+        <div class="memory" onclick="openMemory(this)">૮ . . ྀིა
+            <img src="images/image3.png">
+            
+        </div>
+
+        <div class="memory" onclick="openMemory(this)">૮ . . ྀིა
+            <img src="images/image4.png">
+            
+        </div>
+
+        <div class="memory" onclick="openMemory(this)">૮ . . ྀིა
+            <img src="images/image5.png">
+            
+        </div>
+
+        <div class="memory" onclick="openMemory(this)">૮ . . ྀིა
+            <img src="images/image6.png">
+            
+        </div>
+
+        <div class="memory" onclick="openMemory(this)">૮ . . ྀིა
+            <img src="images/image7.png">
+            
+        </div>
+
+        <div class="memory" onclick="openMemory(this)">૮ . . ྀིა
+            <img src="images/image8.png">
+            
+        </div>
+
+        <div class="memory" onclick="openMemory(this)">૮ . . ྀིა
+            <img src="images/image9.png">
+            
+        </div>
+
+        <div class="memory" onclick="openMemory(this)">૮ . . ྀིა
+            <img src="images/image10.png">
+            
+        </div>
+        
+    </div>
+
+    <button onclick="goBack()">go back ⋆˚.༄</button>
+    <button onclick="goNext()">next.☘︎ ݁˖ </button>
+</div>
+
+<script>
+function openMemory(card) {
+    card.classList.add("open");
+    card.querySelector("img").style.display = "block";
+    card.querySelector(".caption").style.display = "block";
+    card.firstChild.textContent = "";
+}
+
+
+function goNext() {
+    window.location.href = "page4.html";
+}
+function goBack(){
+    window.location.href = "page2.html";
+}
+
+</script>
+</body>
+</html>

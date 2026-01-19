@@ -1,1 +1,108 @@
-hello
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>happyhappy sayangku</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .display {
+            font-size: 24px;
+            letter-spacing: 10px;
+            padding: 10px;
+            margin: 0 auto 15px auto; 
+            border: 2px solid #e09bfc;
+            border-radius: 10px;
+            width: 180px;
+            text-align: center;
+            background: #ffa7f3;
+        }
+
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 60px);
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .keypad button {
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: none;
+            background: #dfa4ee;
+            color: rgb(1, 87, 109);
+            cursor: pointer;
+        }
+
+        .keypad button:hover {
+            background: #9250b1;
+        }
+
+        .action {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1> ⋆˚꩜.ᐟEnter Password ⋆˚꩜.ᐟ </h1>
+        <p class="hint">
+    Hint: The password is your birthday ݁ ˖Ი𐑼⋆
+        </p>
+
+        <!-- ช่องแสดงรหัส (พิมพ์ไม่ได้) -->
+        <div id="display" class="display">----</div>
+
+        <!-- ปุ่มตัวเลข -->
+        <div class="keypad">
+            <button onclick="addNumber(1)">1</button>
+            <button onclick="addNumber(2)">2</button>
+            <button onclick="addNumber(3)">3</button>
+            <button onclick="addNumber(4)">4</button>
+            <button onclick="addNumber(5)">5</button>
+            <button onclick="addNumber(6)">6</button>
+            <button onclick="addNumber(7)">7</button>
+            <button onclick="addNumber(8)">8</button>
+            <button onclick="addNumber(9)">9</button>
+            <button onclick="clearCode()">C</button>
+            <button onclick="addNumber(0)">0</button>
+            <button onclick="checkPassword()">✔</button>
+        </div>
+
+        <p id="error" style="color:red; margin-top:10px;"></p>
+    </div>
+
+    <script>
+        let inputCode = "";
+        const correctPassword = "2001";
+
+        function addNumber(num) {
+            if (inputCode.length < 4) {
+                inputCode += num;
+                updateDisplay();
+            }
+        }
+
+        function clearCode() {
+            inputCode = "";
+            updateDisplay();
+            document.getElementById("error").textContent = "";
+        }
+
+        function updateDisplay() {
+            const display = document.getElementById("display");
+            display.textContent = inputCode.padEnd(4, "-");
+        }
+
+        function checkPassword() {
+            if (inputCode === correctPassword) {
+                window.location.href = "page2.html";
+            } else {
+                document.getElementById("error").textContent =
+                    "❌ Incorrect password. Try again.";
+                clearCode();
+            }
+        }
+    </script>
+</body>
+</html>

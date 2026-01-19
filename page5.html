@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Before You Go</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+    (function(){
+        emailjs.init("KrolXJAo9KSOMTnuN");
+    })();
+    </script>
+</head>
+<body>
+
+<div class="card">
+    <h1>°❀⋆.ೃ࿔Before You Go°❀⋆.ೃ࿔</h1>
+    <p class="hint">
+    Before we wrap up, I’d like to ask you a small question ᯓ❤︎
+        </p>
+
+    <form class="question-form">
+        <div class="question">
+            <label>𐔌˙. How are you feeling today?</label>
+            <textarea id="q1" placeholder="I just want to know if you’re okay and doing well..."></textarea>
+        </div>
+
+        <div class="question">
+            <label>𐔌˙. What’s your favorite memory?</label>
+            <textarea id="q2" placeholder="I hope you still remember the time when we were together..."></textarea>
+        </div>
+
+        <div class="question">
+            <label>𐔌˙. Is there anything you want to say to me?</label>
+            <textarea id="q3" placeholder="Something you’ve never told me before"></textarea>
+        </div>
+    </form>
+
+    <div class="nav-buttons">
+    <button onclick="goBack()">go back⋆.˚⟡ ࣪ ˖</button>
+    <button onclick="goIndex()">home⋆.˚⟡ ࣪ ˖</button>
+    <button onclick="sendAnswers()">done⋆.˚⟡ ࣪ ˖</button>
+</div>
+</div>
+
+<script>
+const fields = ["q1", "q2", "q3"];
+
+
+window.onload = () => {
+    fields.forEach(id => {
+        const saved = localStorage.getItem(id);
+        if (saved) {
+            document.getElementById(id).value = saved;
+        }
+    });
+};
+  function goIndex() {
+    window.location.href = "index.html";
+}
+
+fields.forEach(id => {
+    document.getElementById(id).addEventListener("input", e => {
+        localStorage.setItem(id, e.target.value);
+    });
+});
+
+function goBack() {
+    window.location.href = "page4.html";
+}
+
+function sendAnswers() {
+    const q1 = document.getElementById("q1").value;
+    const q2 = document.getElementById("q2").value;
+    const q3 = document.getElementById("q3").value;
+
+    if (!q1 && !q2 && !q3) {
+        alert("You can write something before sending ");
+        return;
+    }
+
+    emailjs.send(
+        "service_sgrulfo",
+        "template_4pb9bbg",
+        {
+            q1: q1,
+            q2: q2,
+            q3: q3
+        }
+    ).then(() => {
+        alert("Thank you for answering.I really appreciate your words ");
+        localStorage.clear();
+    }, (error) => {
+        alert("Something went wrong. Please try again.");
+        console.log(error);
+    });
+}
+</script>
+
+</body>
+</html>
+

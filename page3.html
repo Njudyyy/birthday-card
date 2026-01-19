@@ -188,12 +188,10 @@
 
 <script>
 function openMemory(card) {
+    if (card.classList.contains("open")) return;
     card.classList.add("open");
-    card.querySelector("img").style.display = "block";
-    card.querySelector(".caption").style.display = "block";
     card.firstChild.textContent = "";
 }
-
 
 function goNext() {
     window.location.href = "page4.html";
@@ -201,7 +199,9 @@ function goNext() {
 function goBack(){
     window.location.href = "page2.html";
 }
-
 </script>
+
 </body>
 </html>
+
+
